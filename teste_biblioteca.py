@@ -5,13 +5,14 @@ from Autor import Autor
 biblioteca = Biblioteca()
 opcao = "0"
 
-while opcao != "5":
+while opcao != "6":
     print("\nMenu:")
     print("1. Adicionar Livro")
     print("2. Remover Livro")
     print("3. Buscar Livro")
     print("4. Listar Livros")
-    print("5. Sair")
+    print("5. Salvar dados dos livros em arquivo")
+    print("6. Sair")
     
     opcao = input("Escolha uma opção: ")
 
@@ -19,7 +20,7 @@ while opcao != "5":
         titulo = input("Título do Livro: ")
         nome_autor = input("Nome do Autor: ")
         nacionalidade = input("Nacionalidade do Autor: ")
-        data_nascimento = input("Data de Nascimento do Autor: ")
+        data_nascimento = input("Data de Nascimento do Autor (formato: DD/MM/AAAA): ")
         
         ano_publicacao = input("Ano de Publicação: ")
         while not ano_publicacao.isdigit():
@@ -43,6 +44,10 @@ while opcao != "5":
         biblioteca.listarLivros()
 
     elif opcao == "5":
+        arquivo = input("Digite o nome do arquivo: ")
+        biblioteca.salvarEmJson(arquivo)
+
+    elif opcao == "6":
         print("Saindo...")
 
     else:
